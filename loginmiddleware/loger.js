@@ -1,17 +1,17 @@
 async function postJSON(url, payload) {
-  const isNode = typeof window === "undefined";
-  let fetchFn = typeof fetch === "function" ? fetch : null;
-
-  if (!fetchFn && isNode) {
-    fetchFn = (await import("node-fetch")).default;
+  // In browser environment, fetch is always available
+  // In Node.js environment, we'll use a try-catch approach
+  try {
+    const res = await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+    return res;
+  } catch (error) {
+    console.error("Fetch failed:", error);
+    throw error;
   }
-
-  const res = await fetchFn(url, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(payload),
-  });
-  return res;
 }
 
 async function Log(stack, level, pkg, message) {
@@ -31,4 +31,4 @@ const Logger = {
   fatal: (stack, pkg, msg) => Log(stack, "fatal", pkg, msg),
 };
 
-module.exports = { Log, Logger };
+export { Log, Logger };

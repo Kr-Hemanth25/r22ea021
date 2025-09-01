@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Logger } from "../../../loginmiddleware/loger";
+import { Logger } from "../../loginmiddleware/loger";
 
 // Simple Button
 const Button = ({ children, onClick, className }) => (
