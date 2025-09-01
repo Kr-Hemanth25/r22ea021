@@ -1,0 +1,44 @@
+# Node.js dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Build outputs
+.next/
+out/
+dist/
+build/
+
+# Local env files
+.env
+.env.local
+.env.*.local
+
+# Mac system files
+.DS_Store
+
+# Logs
+logs
+*.log
+*.log.*
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+# Editor/IDE
+.vscode/
+.idea/
+*.swp
+
+# Coverage
+coverage/
+
+# Misc
+*.pid
+*.seed
+*.tgz
+*.tmp
+*.bak
+
+# OS generated files
+Thumbs.db
